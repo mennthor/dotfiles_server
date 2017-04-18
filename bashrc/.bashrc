@@ -23,3 +23,8 @@ export IC86DATA="/fhgfs/groups/app/icecube/IC86_I"
 
 alias startnbserver="jupyter-notebook --no-browser --port=3333"
 
+# Load pyenv automatically by adding
+# the following to ~/.bash_profile:
+export PATH="/home/tmenne/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
