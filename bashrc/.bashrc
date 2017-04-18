@@ -6,8 +6,8 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Autocomplete
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+    source /usr/share/bash-completion/bash_completion
 fi
 
 # Thorbens Sachen
@@ -26,5 +26,10 @@ alias startnbserver="jupyter-notebook --no-browser --port=3333"
 # Load pyenv automatically by adding
 # the following to ~/.bash_profile:
 export PATH="/home/tmenne/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if which pyenv > /dev/null;
+    then eval "$(pyenv init -)";
+fi
+if which pyenv-virtualenv-init > /dev/null;
+    then eval "$(pyenv virtualenv-init -)";
+fi
+
