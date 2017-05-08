@@ -20,6 +20,9 @@ alias lso="\ls --color=auto -Fh"
 alias ..="cd .."
 alias ...="cd ../.."
 
+# Add manually build nvim
+export PATH="$PATH:$HOME/misc/neovim/build/bin"
+
 export IC86DATA="/fhgfs/groups/app/icecube/IC86_I"
 # export PATH=/opt/anaconda2/bin:${PATH}
 # export PATH=/opt/anaconda3/bin:${PATH}
