@@ -24,13 +24,5 @@ export IC86DATA="/fhgfs/groups/app/icecube/IC86_I"
 
 alias startnbserver="jupyter-notebook --no-browser --port=3333"
 
-# Load pyenv automatically by adding
-# the following to ~/.bash_profile:
-export PATH="/home/tmenne/.pyenv/bin:$PATH"
-if which pyenv > /dev/null;
-    then eval "$(pyenv init -)";
-fi
-if which pyenv-virtualenv-init > /dev/null;
-    then eval "$(pyenv virtualenv-init -)";
-fi
-
+# added by Miniconda3 4.3.11 installer
+export PATH="/home/tmenne/miniconda3/bin:$PATH"
