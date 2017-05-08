@@ -1,10 +1,46 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Vim-Plug
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.config/nvim/plugged')
+" Python autocompletion and linting
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+" Un-/Comment line with 'gcc'
+Plug 'tpope/vim-commentary'
+" Powerline like status bar
+Plug 'itchyny/lightline.vim'
+" Show indentation when indented with spaces
+Plug 'Yggdroot/indentLine'
+" Colorschemes
+Plug 'mennthor/Smyck-Color-Scheme'
+call plug#end()
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Plugin Setups
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable deoplete autocompletion, set tab completion and autoclose preview
+let g:deoplete#enable_at_startup = 1
+let g:SuperTabDefaultCompletionType = '<C-n>'
+autocmd CompleteDone * pclose!
+
+" Lightline color scheme
+let g:lightline = {'colorscheme': 'wombat'}
+
+" Indent guides (space indentation only, for tabs see below)
+let g:indent_guides_start_level = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black ctermbg=Black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgray ctermbg=DarkGray
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Visual Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 256 colors for solarized
-let g:solarized_termcolors=256
+" Colorscheme
+colorscheme smyck
 
-" Color every column gretaer than 80
+" Color every column greater than 80
 highlight ColorColumn ctermbg=Black
 let &colorcolumn=join(range(81,999),",")
 
@@ -34,16 +70,6 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 nnoremap ˆ ddkP
 nnoremap ı ddp
 nnoremap ™ yyp
-
-" Disable arrow keys
-" inoremap <Up> <NOP>
-" inoremap <Down> <NOP>
-" inoremap <Right> <NOP>
-" inoremap <Left> <NOP>
-" nnoremap <Up> <NOP>
-" nnoremap <Down> <NOP>
-" nnoremap <Right> <NOP>
-" nnoremap <Left> <NOP>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
