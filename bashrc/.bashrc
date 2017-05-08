@@ -16,6 +16,7 @@ export PS1='\[\033k\033\\\][\u@\h:\[\e[35m\]\W\[\e[0m\]\]]\$ '
 export STORAGE="/fhgfs/users/tmenne/"
 
 alias ls="ls --color=auto -AFh"
+alias lso="\ls --color=auto -Fh"
 
 export IC86DATA="/fhgfs/groups/app/icecube/IC86_I"
 # export PATH=/opt/anaconda2/bin:${PATH}
