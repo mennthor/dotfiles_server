@@ -27,9 +27,10 @@ source .bashrc
 Install Python 3 via miniconda and install packages:
 
 ```
-cd && cd dotfiles
+cd
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
+rm -f Miniconda3-latest-Linux-x86_64.sh
 
 cd && cd dotfiles
 # From Stackoverflow: 35802939, Till Hoffmann :+1:
