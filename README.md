@@ -34,7 +34,7 @@ rm -f Miniconda3-latest-Linux-x86_64.sh
 
 cd && cd dotfiles
 # From Stackoverflow: 35802939, Till Hoffmann :+1:
-while read requ; do conda install --yes $requ; done < pip_equirements.txt
+while read requ; do conda install --yes $requ; done < pip_requirements.txt
 pip install -r pip_requirements.txt  # Install those, that conda doesn't have
 ```
 
@@ -45,6 +45,16 @@ cd && mkdir -p misc && cd misc
 git clone https://github.com/mennthor/python_modules3.git
 cd python_modules3
 pip install -e .
+```
+
+If no neovim is availbale, build and install it first in ~/misc:
+
+```
+cd && mkdir -p misc && cd misc
+git clone https://github.com/neovim/neovim.git
+cd neovim
+make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/misc/neovim"
+make install -j <maximum cores>
 ```
 
 Setup nvim Plugins using Vim-Plug:
