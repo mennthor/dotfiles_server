@@ -15,7 +15,7 @@ cd
 source .bashrc
 ```
 
-Install Python with [pyenv](https://github.com/pyenv/pyenv-installer):
+~~Install Python with [pyenv](https://github.com/pyenv/pyenv-installer):~~
 
 ```
 curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
@@ -23,3 +23,19 @@ eval "$(pyenv init -)"
 pyenv update
 pyenv install 3.6.1
 ```
+
+Use miniconda 3 instead, has more compatibility:
+
+```
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+
+Setup nvim Plugins using Vim-Plug:
+
+```
+curl -fLo ${HOME}/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+nvim -c PlugInstall -c qall
+```
+
