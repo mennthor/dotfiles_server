@@ -17,6 +17,8 @@ export STORAGE="/fhgfs/users/tmenne/"
 
 alias ls="ls --color=auto -AFh"
 alias lso="\ls --color=auto -Fh"
+alias ..="cd .."
+alias ...="cd ../.."
 
 export IC86DATA="/fhgfs/groups/app/icecube/IC86_I"
 # export PATH=/opt/anaconda2/bin:${PATH}
