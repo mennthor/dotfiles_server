@@ -14,14 +14,12 @@ cd
 source .bashrc
 ```
 
-~~Install Python with [pyenv](https://github.com/pyenv/pyenv-installer):~~
+Install tmux plugin manager `tpm`:
 
 ```
-# cd && cd dotfiles
-# curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
-# eval "$(pyenv init -)"
-# pyenv update
-# pyenv install 3.6.1
+cd
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux source ~/.tmux.conf
 ```
 
 Install Python 3 via miniconda and install packages:
