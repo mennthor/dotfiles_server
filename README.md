@@ -46,7 +46,7 @@ Build and install tmux:
 cd && cd misc
 git clone https://github.com/tmux/tmux.git
 sh autogen.sh
-./configure --prefix=$DIR CFLAGS="-I$DIR/misc/libevent/include" LDFLAGS="-L$DIR/lib"
+./configure --prefix=$DIR CFLAGS="-I$DIR/libevent/include" LDFLAGS="-L$DIR/lib"
 make && make install  #  Is now in ~/misc/bin
 ```
 
@@ -56,7 +56,7 @@ Install tmux plugin manager:
 cd && cd misc
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux 
-tmux source ~/.tmux.conf  # Now inside tmux, press Prefix + I in tmux to install plugins
+# Now inside tmux, press Prefix + I in tmux to install plugins. Takes some seconds, be patient.
 ```
 
 Build and install neovim:
@@ -65,7 +65,7 @@ Build and install neovim:
 cd && cd misc
 git clone https://github.com/neovim/neovim.git
 cd neovim
-make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/misc"
+make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$DIR"
 make install
 ```
 
