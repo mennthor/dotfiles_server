@@ -17,8 +17,9 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias startnbserver="jupyter-notebook --no-browser --port=3333"
 
-# Add manually build nvim
-export PATH="$PATH:$HOME/misc/neovim/build/bin"
+# Add manually build libs and binaries
+export PATH="$HOME/misc/bin:$PATH"
+export LD_LIBRARY_PATH="$HOME/misc/lib:$LD_LIBRARY_PATH"
 
 # added by Miniconda3 4.3.11 installer
 export PATH="/home/tmenne/miniconda3/bin:$PATH"
