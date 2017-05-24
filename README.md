@@ -77,7 +77,7 @@ curl -fLo ${HOME}/.config/nvim/autoload/plug.vim --create-dirs \
 nvim -c PlugInstall -c qall
 ```
 
-# Python 3
+## Python 3
 
 Install Python 3 via miniconda and install packages:
 
