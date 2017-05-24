@@ -43,7 +43,7 @@ make && make install  # Is now in ~/misc/lib/
 Build and install tmux:
 
 ```
-cd && mkdir -p misc && cd misc
+cd && cd misc
 git clone https://github.com/tmux/tmux.git
 sh autogen.sh
 ./configure --prefix=$DIR CFLAGS="-I$DIR/misc/libevent/include" LDFLAGS="-L$DIR/lib"
