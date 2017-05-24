@@ -65,7 +65,7 @@ Build and install neovim:
 cd && cd misc
 git clone https://github.com/neovim/neovim.git
 cd neovim
-make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/misc/neovim"
+make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/misc"
 make install
 ```
 
