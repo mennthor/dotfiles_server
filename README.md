@@ -3,7 +3,18 @@
 Dotfiles for a Linux server (different from my OSX dotfiles).
 Provides basic settings for bashrc, tmux, git and nvim and sets up an Anaconda Python 3 with packages I use most of the time.
 
-Install dotfiles:
+Binaries are installed to `~/misc/bin` and libraries to `~/misc/lib`.
+Paths are included in `.bashrc`.
+Before we start, we create the folder and a shortcut for our install path:
+
+```
+cd && mkdir -p misc
+DIR=$HOME/misc
+```
+
+## dotfiles
+
+These get just symlinked to the home directory using GNU stow:
 
 ```
 cd
@@ -14,13 +25,59 @@ cd
 source .bashrc
 ```
 
-Install tmux plugin manager `tpm`:
+## Libraries
+
+Install libevent:
 
 ```
-cd
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-tmux source ~/.tmux.conf
+cd && cd misc
+git clone https://github.com/libevent/libevent
+cd libevent
+sh autogen.sh
+./configure --prefix=$DIR
+make && make install  # Is now in ~/misc/lib/
 ```
+
+## Binaries
+
+Build and install tmux:
+
+```
+cd && mkdir -p misc && cd misc
+git clone https://github.com/tmux/tmux.git
+sh autogen.sh
+./configure --prefix=$DIR CFLAGS="-I$DIR/misc/libevent/include" LDFLAGS="-L$DIR/lib"
+make && make install  #  Is now in ~/misc/bin
+```
+
+Install tmux plugin manager:
+
+```
+cd && cd misc
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux 
+tmux source ~/.tmux.conf  # Now inside tmux, press Prefix + I in tmux to install plugins
+```
+
+Build and install neovim:
+
+```
+cd && cd misc
+git clone https://github.com/neovim/neovim.git
+cd neovim
+make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/misc/neovim"
+make install
+```
+
+Setup nvim plugins using vim-plug:
+
+```
+curl -fLo ${HOME}/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+nvim -c PlugInstall -c qall
+```
+
+# Python 3
 
 Install Python 3 via miniconda and install packages:
 
@@ -39,26 +96,8 @@ pip install -r pip_requirements.txt  # Install those, that conda doesn't have
 Setup my python_modules3 package:
 
 ```
-cd && mkdir -p misc && cd misc
+cd && cd misc
 git clone https://github.com/mennthor/python_modules3.git
 cd python_modules3
 pip install -e .
-```
-
-If no neovim is availbale, build and install it first in ~/misc:
-
-```
-cd && mkdir -p misc && cd misc
-git clone https://github.com/neovim/neovim.git
-cd neovim
-make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/misc/neovim"
-make install -j <maximum cores>
-```
-
-Setup nvim Plugins using Vim-Plug:
-
-```
-curl -fLo ${HOME}/.config/nvim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim -c PlugInstall -c qall
 ```
