@@ -79,6 +79,9 @@ nvim -c PlugInstall -c qall
 
 ## Python 3
 
+**Note:** Python packages are py2 compatible now.
+So save the hassle to egt py3 working when it is not natively installed.
+
 Install Python 3 via miniconda and install packages:
 
 ```
