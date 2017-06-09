@@ -77,9 +77,17 @@ curl -fLo ${HOME}/.config/nvim/autoload/plug.vim --create-dirs \
 nvim -c PlugInstall -c qall
 ```
 
-Setup vim plugins using Vundle:
+Setup vim and plugins using Vundle:
 
 ```
+cd && misc
+git clone https://github.com/vim/vim.git
+cd vim
+./configure --with-features=huge --enable-multibyte --enable-pythoninterp=yes --enable-cscope --prefix=/home/tmenne/software
+make
+make install prefix=$DIR
+
+# Plugins
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim```
 vim -c PluginInstall -c qall
 ```
