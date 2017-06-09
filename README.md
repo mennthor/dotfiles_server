@@ -53,7 +53,7 @@ make && make install  #  Is now in ~/misc/bin
 Install tmux plugin manager:
 
 ```
-cd && cd misc
+cd
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux 
 # Now inside tmux, press Prefix + I in tmux to install plugins. Takes some seconds, be patient.
@@ -76,6 +76,39 @@ curl -fLo ${HOME}/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim -c PlugInstall -c qall
 ```
+
+Setup vim plugins using Vundle:
+
+```
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim```
+vim -c PluginInstall -c qall
+```
+
+Building cmake when the available one is not build with ssl support (then neovim won't build)
+
+```
+cd && cd misc
+mkdir cmake && cd cmake
+wget https://cmake.org/files/v3.9/cmake-3.9.0-rc2.tar.gz
+tar xvzf cmake-3.9.0-rc2.tar.gz
+mkdir build && cd build
+cmake -DCMAKE_INSTALL_PREFIX=$DIR ../cmake-3.9.0-rc2  # requires available cmake
+make
+make install
+```
+
+Bulding libcurl, when SSL is disabled (do this before linking cmake to libcurl to use this version)
+
+```
+cd && cd misc
+mkdir libcurl && cd libcurl
+wget https://curl.haxx.se/download/curl-7.54.0.tar.gz
+tar xvzf curl-7.54.0.tar.gz && cd curl-7.54.0
+./configure --with-ssl
+make
+make install prefix=$DIR
+```
+
 
 ## Python 3
 
