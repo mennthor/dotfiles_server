@@ -58,6 +58,10 @@ highlight BadWhitespace ctermbg=red
 let python_highlight_all=1
 syntax on
 
+" Search highlight readable colors
+:hi Search ctermfg=0 ctermbg=5
+:set hlsearch
+
 " Use system clipboard
 set clipboard=unnamed
 
