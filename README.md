@@ -38,13 +38,25 @@ sh autogen.sh
 make && make install  # Is now in ~/misc/lib/
 ```
 
+Bulding libcurl, when SSL is disabled in cmake (do this before linking cmake to libcurl to use this version)
+
+```
+cd && cd misc
+mkdir libcurl && cd libcurl
+wget https://curl.haxx.se/download/curl-7.54.0.tar.gz
+tar xvzf curl-7.54.0.tar.gz && cd curl-7.54.0
+./configure --with-ssl
+make
+make install prefix=$DIR
+```
+
 ## Binaries
 
 Build and install stow:
 
 ```
-cd && cd misc
 # Get and install dependencies
+cd && cd misc
 wget ftp://ftp.gnu.org/gnu/texinfo/texinfo-6.4.tar.gz
 tar -xzvf texinfo-6.4.tar.gz
 wget http://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.tar.gz
@@ -55,6 +67,7 @@ make && make install
 cd && cd misc/texi2html-5.0
 ./configure --prefix=$DIR
 make && make install
+
 # Build stow from git
 cd && cd misc
 git clone https://github.com/aspiers/stow.git && cd stow
@@ -68,8 +81,9 @@ Build and install tmux:
 ```
 cd && cd misc
 git clone https://github.com/tmux/tmux.git
+cd tmux
 sh autogen.sh
-./configure --prefix=$DIR CFLAGS="-I$DIR/libevent/include" LDFLAGS="-L$DIR/lib"
+./configure --prefix=$DIR CFLAGS="-I$DIR/libevent/include" LDFLAGS="-L$DIR/lib"  # Flags only if libevent is custom
 make && make install  #  Is now in ~/misc/bin
 ```
 
@@ -79,7 +93,7 @@ Install tmux plugin manager:
 cd
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux 
-# Now inside tmux, press Prefix + I in tmux to install plugins. Takes some seconds, be patient.
+$HOME/.tmux/plugins/tpm/bin/install_plugins  # Or inside tmux press Prefix + (captial) I
 ```
 
 Build and install neovim:
@@ -127,19 +141,6 @@ cmake -DCMAKE_INSTALL_PREFIX=$DIR ../cmake-3.9.0-rc2  # requires available cmake
 make
 make install
 ```
-
-Bulding libcurl, when SSL is disabled (do this before linking cmake to libcurl to use this version)
-
-```
-cd && cd misc
-mkdir libcurl && cd libcurl
-wget https://curl.haxx.se/download/curl-7.54.0.tar.gz
-tar xvzf curl-7.54.0.tar.gz && cd curl-7.54.0
-./configure --with-ssl
-make
-make install prefix=$DIR
-```
-
 
 ## Python 3
 
