@@ -40,6 +40,29 @@ make && make install  # Is now in ~/misc/lib/
 
 ## Binaries
 
+Build and install stow:
+
+```
+cd && cd misc
+# Get and install dependencies
+wget ftp://ftp.gnu.org/gnu/texinfo/texinfo-6.4.tar.gz
+tar -xzvf texinfo-6.4.tar.gz
+wget http://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.tar.gz
+tar -xzvf texi2html-5.0.tar.gz
+cd texinfo-6.4
+./configure --prefix=$DIR
+make && make install
+cd && cd misc/texi2html-5.0
+./configure --prefix=$DIR
+make && make install
+# Build stow from git
+cd && cd misc
+git clone https://github.com/aspiers/stow.git && cd stow
+autoreconf -iv
+./configure --prefix=$DIR
+make && make install
+```
+
 Build and install tmux:
 
 ```
