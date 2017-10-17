@@ -8,8 +8,8 @@ if [ -f /usr/share/bash-completion/bash_completion ]; then
     source /usr/share/bash-completion/bash_completion
 fi
 
-# CLI Prefix: Hostname:Path$
-export PS1='\[\033k\033\\\][\u@\h:\[\e[35m\]\W\[\e[0m\]\]]\$ '
+# CLI Prefix: [Hostname:Path(magenta)]$
+export PS1="[\u@\h:\[$(tput setaf 5)\]\W\[$(tput sgr 0)\]]\\$ "
 
 alias ls="ls --color=auto -AFh"
 alias lso="\ls --color=auto -Fh"
