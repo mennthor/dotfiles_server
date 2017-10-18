@@ -10,6 +10,7 @@ fi
 
 # CLI Prefix: [Hostname:Path(magenta)]$
 export PS1="[\u@\h:\[$(tput setaf 5)\]\W\[$(tput sgr 0)\]]\\$ "
+source ~/.bashrc_local
 
 alias ls="ls --color=auto -AFh"
 alias lso="\ls --color=auto -Fh"
@@ -22,4 +23,4 @@ export PATH="$HOME/misc/bin:$PATH"
 export LD_LIBRARY_PATH="$HOME/misc/lib:$LD_LIBRARY_PATH"
 
 # added by Miniconda3 4.3.11 installer
-export PATH="/home/tmenne/miniconda3/bin:$PATH"
+# export PATH="/home/tmenne/miniconda3/bin:$PATH"
