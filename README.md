@@ -38,7 +38,8 @@ sh autogen.sh
 make && make install  # Is now in ~/misc/lib/
 ```
 
-Bulding libcurl, when SSL is disabled in cmake (do this before linking cmake to libcurl to use this version)
+Bulding libcurl, when SSL is disabled in cmake (do this before linking cmake to libcurl to use this version).
+Also needed for git to enable push and pull via https.
 
 ```
 cd && cd misc
@@ -149,7 +150,7 @@ cd && cd misc
 wget https://github.com/git/git/releases/tag/v2.17.0  # Select version
 cd git-<version>
 make configure  # needs autoconf
-./configure --prefix=${HOME}/misc
+./configure --prefix=${HOME}/misc  --with-curl=${HOME}/misc/bin  #  Folder where to find curl-config
 make && make install
 ```
 
