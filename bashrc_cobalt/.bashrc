@@ -11,6 +11,7 @@ alias lso="\ls --color -Fh"
 alias ..="cd .."
 alias ...="cd ../.."
 alias startnbserver="jupyter-notebook --no-browser --port=2222"
+alias gti="echo 'Typed gti again...'; git"
 
 # Source autocompletions
 for i in $(ls ~/software/bash-completions); do
