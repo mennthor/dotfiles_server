@@ -142,6 +142,28 @@ make
 make install
 ```
 
+Building `git`:
+
+```
+cd && cd misc
+wget https://github.com/git/git/releases/tag/v2.17.0  # Select version
+cd git-<version>
+make configure  # needs autoconf
+./configure --prefix=${HOME}/misc
+make && make install
+```
+
+Building `autoconf` for building `git` if not available:
+
+```
+cd && cd misc
+http://ftp.gnu.org/gnu/autoconf/autoconf-latest.tar.gz
+tar -xzvf autoconf-latest.tar.gz
+cd autoconf-<version>
+./configure --prefix=${HOME}/misc
+make && make install
+```
+
 ## Python 3
 
 **Note:** Python packages are py2 compatible now.
