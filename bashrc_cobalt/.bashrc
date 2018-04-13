@@ -53,6 +53,10 @@ function count_files {
     find $1 -mindepth 1 -maxdepth 1 -type f -name "$2" -exec  printf x \; | wc -c;
 }
 
+function gits {
+    for folder in $@; do cd $folder; echo "Checking '$(pwd)'"; git status; cd - > /dev/null; done
+}
+
 # Load python3 on demand. Disables the cvmfs paths and restores them on deactivate
 function miniconda3 {  
         # Activates miniconda 3 as the main python.
