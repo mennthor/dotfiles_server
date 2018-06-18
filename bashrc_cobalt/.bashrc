@@ -36,7 +36,7 @@ alias devset2="exec scl enable devtoolset-2 bash"
 
 # All custom build software goes to ~/software/[bin|lib]
 export PATH=~/software/bin:$PATH
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/software/lib
+export LD_LIBRARY_PATH=~/software/lib:$LD_LIBRARY_PATH
 
 
 # Add user python packages first in path
